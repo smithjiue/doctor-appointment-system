@@ -4,6 +4,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Data
+@Builder
 public class AppointmentDto {
     private Long id;
     private Long doctorId;
