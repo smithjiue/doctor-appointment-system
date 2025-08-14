@@ -17,7 +17,9 @@ public class Doctor {
     @NotBlank @Size(max=100)
     private String specialization;
 
-    @Email @Size(max=150)
+    @Email
+    @Size(max=150)
+    @Column(unique = true)
     private String email;
 
     @Size(max=20)

@@ -1,14 +1,16 @@
 package com.das.doctors_appointment_system.exception;
 
-
+import com.das.doctors_appointment_system.dto.ErrorResponse;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.*;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.WebRequest;
 import java.util.*;
-import java.util.Map;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<Map<String,Object>> handleNotFound(NotFoundException e) {
         return build(HttpStatus.NOT_FOUND, e.getMessage());
@@ -22,12 +24,50 @@ public class GlobalExceptionHandler {
         body.put("status", HttpStatus.BAD_REQUEST.value());
         body.put("error", "Validation failed");
         body.put("details", errors);
+        body.put("timestamp", new Date());
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Map<String,Object>> handleIllegalArg(IllegalArgumentException e) {
         return build(HttpStatus.BAD_REQUEST, e.getMessage());
+    }
+
+    // Handle custom EmailAlreadyExistsException
+    @ExceptionHandler(EmailAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponse> handleEmailAlreadyExistsException(
+            EmailAlreadyExistsException ex, WebRequest request) {
+
+        ErrorResponse errorResponse = new ErrorResponse(
+                ex.getMessage(),
+                HttpStatus.CONFLICT.value(),
+                "Email Already Exists",
+                request.getDescription(false).replace("uri=", "")
+        );
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.CONFLICT);
+    }
+
+    // Handle DataIntegrityViolationException (database constraint violations)
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<ErrorResponse> handleDataIntegrityViolationException(
+            DataIntegrityViolationException ex, WebRequest request) {
+
+        String message = "Data integrity violation";
+
+        // Check if it's an email constraint violation
+        if (ex.getMessage() != null && ex.getMessage().toLowerCase().contains("email")) {
+            message = "Email already exists in the system";
+        }
+
+        ErrorResponse errorResponse = new ErrorResponse(
+                message,
+                HttpStatus.CONFLICT.value(),
+                "Constraint Violation",
+                request.getDescription(false).replace("uri=", "")
+        );
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.CONFLICT);
     }
 
     @ExceptionHandler(Exception.class)
