@@ -16,7 +16,7 @@ public class DoctorController {
 
     @GetMapping
     public Page<DoctorDto> list(@RequestParam(defaultValue="0") int page,
-                                @RequestParam(defaultValue="20") int size,
+                                @RequestParam(defaultValue="10") int size,
                                 @RequestParam(defaultValue="id,asc") String sort) {
         Pageable pageable = PageRequest.of(page, size, Sort.by(parseSort(sort)));
         return service.findAll(pageable);
