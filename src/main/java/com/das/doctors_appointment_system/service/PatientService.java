@@ -1,6 +1,7 @@
 package com.das.doctors_appointment_system.service;
 
 import com.das.doctors_appointment_system.dto.PatientDto;
+import com.das.doctors_appointment_system.exception.NotFoundException;
 import com.das.doctors_appointment_system.model.Patient;
 import com.das.doctors_appointment_system.repository.PatientRepository;
 import lombok.RequiredArgsConstructor;
