@@ -7,6 +7,7 @@ import com.das.doctors_appointment_system.model.Appointment;
 import com.das.doctors_appointment_system.model.Doctor;
 import com.das.doctors_appointment_system.model.Patient;
 import com.das.doctors_appointment_system.repository.AppointmentRepository;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;

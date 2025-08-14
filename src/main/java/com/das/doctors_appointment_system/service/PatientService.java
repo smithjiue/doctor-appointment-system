@@ -4,6 +4,8 @@ import com.das.doctors_appointment_system.dto.PatientDto;
 import com.das.doctors_appointment_system.exception.NotFoundException;
 import com.das.doctors_appointment_system.model.Patient;
 import com.das.doctors_appointment_system.repository.PatientRepository;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
