@@ -39,7 +39,7 @@ A Spring Boot REST API for managing doctors, patients, and appointments. This sy
 1. **Clone the repository**
 
    ```bash
-   git clone <https://github.com/smithjiue/doctor-appointment-system.git>
+   git clone https://github.com/smithjiue/doctor-appointment-system.git
    cd doctors_appointment_system
    ```
 
@@ -59,7 +59,7 @@ A Spring Boot REST API for managing doctors, patients, and appointments. This sy
 1. **Clone the repository**
 
    ```bash
-   git clone <https://github.com/smithjiue/doctor-appointment-system.git>
+   git clone https://github.com/smithjiue/doctor-appointment-system.git
    cd doctors_appointment_system
    ```
 
