@@ -378,4 +378,4 @@ The application includes comprehensive error handling:
 
 ## 👥 Authors
 
-Smith jiue [Doctor Appointment System](https://linkedin.com/in/smith-jiue)
+Smith jiue [LinkedIn](https://linkedin.com/in/smith-jiue)
