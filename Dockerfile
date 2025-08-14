@@ -2,7 +2,7 @@ FROM eclipse-temurin:24-jre
 
 WORKDIR /app
 
-COPY target/doctor-appointments-1.0.0.jar app.jar
+COPY target/doctors_appointment_system-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8080
 
