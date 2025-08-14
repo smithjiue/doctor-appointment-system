@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Table(indexes = {
         @Index(name = "idx_appt_doctor_time", columnList = "doctor_id, appointmentDateTime", unique = true)

@@ -6,6 +6,8 @@ import lombok.*;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Patient {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +17,7 @@ public class Patient {
     private String name;
 
     @Email @Size(max=150)
+    @Column(unique = true)
     private String email;
 
     @Size(max=20)

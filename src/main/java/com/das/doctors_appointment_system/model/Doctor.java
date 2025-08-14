@@ -6,6 +6,8 @@ import lombok.*;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Doctor {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
