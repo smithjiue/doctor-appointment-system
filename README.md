@@ -40,7 +40,7 @@ A Spring Boot REST API for managing doctors, patients, and appointments. This sy
 
    ```bash
    git clone https://github.com/smithjiue/doctor-appointment-system.git
-   cd doctors_appointment_system
+   cd doctor-appointment-system
    ```
 
 2. **Set up MySQL Database**
@@ -60,7 +60,7 @@ A Spring Boot REST API for managing doctors, patients, and appointments. This sy
 
    ```bash
    git clone https://github.com/smithjiue/doctor-appointment-system.git
-   cd doctors_appointment_system
+   cd doctor-appointment-system
    ```
 
 2. **Start the application with Docker Compose**
